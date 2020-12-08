@@ -1,0 +1,2 @@
+(this["webpackJsonpapp-react"]=this["webpackJsonpapp-react"]||[]).push([[0],{10:function(e,t,c){},4:function(e,t,c){"use strict";c.r(t);var n=c(0),a=(c(2),c(3)),r=c.n(a);c(10);function s(e){return Object(n.jsx)("div",{className:"container-fluid",children:Object(n.jsx)("div",{className:"game-board",children:Object(n.jsx)("p",{children:"Salut"})})})}r.a.render(Object(n.jsx)(s,{}),document.getElementById("root"))}},[[4,1,2]]]);
+//# sourceMappingURL=main.cee9a523.chunk.js.map
