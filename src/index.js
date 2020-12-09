@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import {test} from './bdd'
 
 // Start Openlayers imports
 import { 
@@ -133,10 +134,11 @@ import {
 }
 
 function App(props){
-    
+        
         return (
             <div>
                <OLMapFragment />
+               <p>{test()}</p>
             </div>
         );
 }
