@@ -1,21 +1,52 @@
-export function test(){
-    const pgClient = require("pg").Client;
-    console.log("testing");
-    //var connectionString = "pg://postgres:postgres@176.169.46.223:5432";
-    //var client = new pgClient();
+import React, { Fragment, useState, useEffect } from 'react';
 
-    var client = new pgClient({
-        user: 'toto',
-        host: '176.169.46.223',
-        database: 'postgres',
-        password: 'toto',
-        port: 5432,
-    });
-    client.connect();
-    //var queryTest = "Select "
+const Bdd = () => {
+    useEffect(() => {
+        const getAPI = () => {
+            // Change this endpoint to whatever local or online address you have
+            // Local PostgreSQL Database
+            const API = 'http://176.169.46.223:5000/';
+
+            fetch(API)
+                .then((response) => {
+                    console.log(response);
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    setLoading(false);
+                    setApiData(data);
+                });
+        };
+        getAPI();
+    }, []);
+    const [apiData, setApiData] = useState([]);
+    const [loading, setLoading] = useState(true);
     return (
-        <div>
-           <p>test</p>
-        </div>
+        <Fragment>
+            <header>
+                <h1>Les salles</h1>
+            </header>
+            <main>
+                {loading === true ? (
+                    <div>
+                        <h1>Loading...</h1>
+                    </div>
+                ) : (
+                    <section>
+                        {apiData.map((salle) => {
+
+                            return (
+                                <div className="salle-container" key={String(salle.salle)}>
+                                    <p>{salle.fonction}</p>
+                                </div>
+                            );
+                        })}
+                    </section>
+                )}
+            </main>
+        </Fragment>
     );
-}
+};
+
+export default Bdd;
